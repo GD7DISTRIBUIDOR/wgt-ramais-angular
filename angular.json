@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "widget-aniversariantes": {
+    "widget-ramais": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/widget-aniversariantes",
+            "outputPath": "dist/widget-ramais",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -30,8 +30,14 @@
               "src/assets"
             ],
             "styles": [
+              
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -48,7 +54,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
               "optimization": false,
@@ -62,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "widget-aniversariantes:build:production"
+              "buildTarget": "widget-ramais:build:production"
             },
             "development": {
-              "buildTarget": "widget-aniversariantes:build:development"
+              "buildTarget": "widget-ramais:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "widget-aniversariantes:build"
+            "buildTarget": "widget-ramais:build"
           }
         },
         "test": {

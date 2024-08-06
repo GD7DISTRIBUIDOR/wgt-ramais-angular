@@ -1,0 +1,48 @@
+<div class="rwgt-carrossel-container">
+  <div class="awgt-header">
+    <h1>Ramais</h1>
+    <hr class="awgt-header-line" />
+  </div>
+  <div style="padding: 10px;">
+    <div *ngFor="let empresa of getEmpresas(); let i = index">
+      <div class="panel-group" style="" id="accordion-{{i}}">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapse-icon up" data-toggle="collapse" [attr.href]="'#collapse-' + i" [attr.data-parent]="'#accordion-' + i">
+                {{ empresa }}
+              </a>
+            </h4>
+          </div>
+          <div [id]="'collapse-' + i" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div *ngFor="let setor of getSetores(empresa); let j = index">
+                <div class="panel-group" id="accordion-{{i}}-{{j}}">
+                  <div class="panel panel-default" >
+                    <div class="panel-heading" style="background-color: #aacc44;">
+                      <h5 class="panel-title" style="font-weight: bold; background-color: #aacc44;">
+                        <a class="collapse-icon up" data-toggle="collapse" [attr.href]="'#collapse-' + i + '-' + j" [attr.data-parent]="'#accordion-' + i + '-' + j">
+                          {{ setor }}
+                        </a>
+                      </h5>
+                    </div>
+                    <div [id]="'collapse-' + i + '-' + j" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <ul>
+                          <li *ngFor="let item of empresas[empresa][setor]" style="text-decoration: underline;">
+                            <strong>NOME:</strong> {{ item.NOME }};
+                            <strong style="margin-left: 10px;">RAMAL:</strong> {{ item.RAMAL }};
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

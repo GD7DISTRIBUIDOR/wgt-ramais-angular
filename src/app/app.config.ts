@@ -1,8 +1,7 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-
-export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
-};
+declare const window: any
+class AppSettings {
+    public static tenantURI: any = window?.WCMAPI?.tenantURI
+    public static pageCode: any = window?.WCMAPI?.pageCode
+    public static APP_BASE = (this.tenantURI && this. pageCode) ? this.tenantURI + '/' + this.pageCode : '/'
+}
+export { AppSettings as APP_CONFIG }
